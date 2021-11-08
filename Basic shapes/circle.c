@@ -12,7 +12,6 @@ int width=1000,
 height =600,
 channel =3;
 
-int w,h,chan;
 
 char* img; 
 
@@ -41,7 +40,7 @@ void putpixel(position pos, pixel c)
 
 
 int main(){
-//unsigned char * radius = stbi_load("test.jpg",&w,&h,&chan,0);
+
 img = malloc(width*height*channel);
 for(int i = 0; i<width*height*channel ; i++)
 	img[i] = 255;
@@ -68,20 +67,9 @@ for(p.x=0;p.x<width;p.x++){
     c.r=0;c.g=0;c.b=0;
     putpixel(p,c);
 }}
-// {position p;pixel c;
-// for(int i=0;i<h;i++){
-//     for(int j=0;j<w;j++){
-//         c.r=radius[i*w*chan+j*chan];
-//         c.g=radius[i*w*chan+j*chan+1];
-//         c.b=radius[i*w*chan+j*chan+2];
-//         p.x=j;
-//         p.y=i;
-//         putpixel(p,c);
-//     }
-// }
-//}
+
 stbi_write_jpg("circle.jpg",width,height,channel,img,100);
 free(img);
-//stbi_image_free(radius);
+
 return 0;
 }
